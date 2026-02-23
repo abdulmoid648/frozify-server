@@ -3,7 +3,7 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 // @desc    Create Stripe payment intent
 // @route   POST /api/payment/process
 // @access  Private
-exports.processPayment = async (req, res) => {
+exports.createPaymentIntent = async (req, res) => {
     try {
         const { amount } = req.body;
 
@@ -19,7 +19,7 @@ exports.processPayment = async (req, res) => {
 
         res.status(200).json({
             success: true,
-            client_secret: paymentIntent.client_secret
+            clientSecret: paymentIntent.client_secret
         });
     } catch (error) {
         res.status(500).json({ success: false, error: error.message });

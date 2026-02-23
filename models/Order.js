@@ -22,13 +22,13 @@ const OrderSchema = new mongoose.Schema({
     shippingAddress: {
         address: { type: String, required: true },
         city: { type: String, required: true },
-        postalCode: { type: String, required: true },
+        postalCode: { type: String },
         phone: { type: String, required: true }
     },
     paymentMethod: {
         type: String,
         required: true,
-        default: 'Stripe'
+        default: 'WhatsApp'
     },
     paymentResult: {
         id: { type: String },
